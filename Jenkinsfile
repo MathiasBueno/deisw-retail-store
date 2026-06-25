@@ -7,7 +7,7 @@ pipeline {
 	environment {
 		REGISTRY_USER = "mitame127" // Cambia por tu usuario real de Docker Hub
         // Nombre de la imagen que vamos a crear para nuestra aplicación
-        IMAGE_NAME = "mitame127/retail-store-U202313433:latest" // Cambia por tu nombre de imagen real
+        IMAGE_NAME = "mitame127/retail-store-U202313433" // Cambia por tu nombre de imagen real
         TAG        = "${env.BUILD_NUMBER}" // Usa el número de ejecución de Jenkins como versión
     }
 
@@ -79,7 +79,7 @@ pipeline {
 
                         echo "Construyendo imagen optimizada AMD64..."
                         // Compilamos forzando la plataforma AMD64 para evitar el error 'exec format error' en Render
-                        sh "docker buildx build --platform linux/amd64 -t ${REGISTRY_USER}/${IMAGE_NAME}:${TAG} -t ${REGISTRY_USER}/${IMAGE_NAME}:latest --push ."
+                        sh "docker buildx build --platform linux/amd64 -t ${REGISTRY_USER}/dockerhub/${IMAGE_NAME}:${TAG} -t ${REGISTRY_USER}/${IMAGE_NAME}:latest --push ."
                     }
                 }
             }
