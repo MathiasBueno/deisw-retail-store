@@ -2,7 +2,7 @@ pipeline {
   agent any
   tools {
     maven 'MAVEN_3_9_11'
-    jdk 'JDK_26'
+    jdk 'JDK_24'
   }
 	environment {
 		REGISTRY_USER = "mitame127" // Cambia por tu usuario real de Docker Hub
